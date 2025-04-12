@@ -1,0 +1,145 @@
+/* RESET */
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+	user-select: none;
+	-webkit-user-select: none;
+}
+*,*::before,*::after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Links */
+a,a:visited,a:hover {
+  // color: inherit;
+	user-select: none;
+  text-decoration: none;
+}
+a:focus,a:active {
+  outline: none;
+}
+option:focus, select:focus{
+	outline: none;
+}
+select:hover{
+	cursor: pointer;
+}
+form:focus{
+  outline: none;
+}
+input:focus,input:active,button:focus,button:active {
+  outline: none;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+  font-size: 100%;
+  line-height: 1;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+aside,nav,footer,header,section,main {display: block;}
+h1,h2,h3,h4,h5,h6,p {
+  font-size: inherit;
+  font-weight: inherit;
+}
+ul, ol, li {list-style: none;}
+img,svg {
+  display: block;
+  height: auto;
+}
+/* Form */
+input,textarea,button,select {
+  font-family: inherit;
+  font-size: inherit;
+	color: inherit
+}
+input::-ms-clear {display: none;}
+button::-moz-focus-inner{
+  padding: 0;
+  margin: 0;
+}
+button,input[type="submit"] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+label {cursor: pointer;}
+legend {display: block;}
+/* RESET END */
+
+/* FONTS */
+@font-face {
+  font-family: '$Bernierd-Distressed';
+  src: url('/src/assets/fonts/Bernier/BERNIERDistressed-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: '$Bernied-Regular';
+  src: url('/src/assets/fonts/Bernier/BERNIERRegular-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: '$Bernied-Shade';
+  src: url('/src/assets/fonts/Bernier/BERNIERShade-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: '$LevSerif';
+  src: url('/src/assets/fonts/LevFontKit/LevSerif-BlackDistressed.otf') format('opentype'),
+       url('/src/assets/fonts/LevFontKit/LevSerif-BlackDistressed.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: '$PFStampsPro-Blur';
+  src: url('/src/assets/fonts/PFStampsPro/PFStampsPro-Blur.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: '$PFStampsPro-Flex';
+  src: url('/src/assets/fonts/PFStampsPro/PFStampsPro-Flex.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: '$WorkSpace-Italic';
+  src: url('/src/assets/fonts/WorkSpace/mr_WorkSpaceG_italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: '$Stamber-Bold';
+  src: url('/src/assets/fonts/StamperBold/A_Stamper_Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+/* FONTS END*/

@@ -1,0 +1,46 @@
+.home {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+	overflow: hidden;
+
+
+
+  &__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    z-index: 2;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); // Начальное состояние (прозрачный)
+    transition: background-color 1.5s ease-in-out; // Анимация затемнения и затухания
+    z-index: 10;
+
+		&--darkened{
+			background-color: rgba(0, 0, 0, 1); // Чёрный экран
+   		 z-index: 10; // Затемнение поверх контента
+		}
+  }
+}
+
+
+// Свет для модалки книжки
+.modal_light{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0.2;
+	object-fit: cover;
+	pointer-events: none;
+	z-index: 10;
+}

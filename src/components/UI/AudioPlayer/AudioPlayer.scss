@@ -1,0 +1,81 @@
+.audio-player {
+	position: relative;
+  display: inline-block;
+  color: #fff;
+  z-index: 19;
+  cursor: pointer;
+
+  &__controls {
+    display: flex;
+    align-items: center;
+  }
+
+  &__play-icon,
+  &__volume-icon {
+    padding: 5px;
+    border-radius: 50%;
+    background-color: none;
+  }
+
+  &__volume-slider-container {
+    position: relative;
+    display: none;
+    align-items: center;
+    padding: 5px;
+    background-color: none;
+    border-radius: 5px;
+    margin-left: 5px;
+
+    &--visible {
+      display: flex;
+    }
+  }
+
+  &__volume-slider {
+    width: 100px;
+    height: 5px;
+    background: #ddd;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    border-radius: 3px;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &::-webkit-slider-thumb,
+    &::-moz-range-thumb {
+      width: 12px;
+      height: 12px;
+      background: #fff;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+  }
+
+  &__autoplay-blocked {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgba(255, 0, 0, 0.3);
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    animation: fadeOut 5s forwards; // Анимация исчезновения
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}

@@ -1,0 +1,316 @@
+// Базовый размер шрифта
+$base-font-size: 1rem;
+
+// Размеры шрифтов
+$font-size-title: 1.5rem;
+$font-size-subtitle: 1.25rem;
+$font-size-text: 0.85rem;
+$font-size-list-item: 1rem;
+
+// Отступы
+$padding-content: 26% 12% 12% 12%;
+$margin-bottom-title: 1;
+$margin-top-subtitle: 0.625rem;
+$margin-bot-subtitle: 0.625rem;
+$margin-bottom-text: 0.425rem;
+$padding-left-text: 0.425rem;
+$margin-bottom-list-item: 0.5rem;
+$padding-nav-button: 0 1rem 3rem 1rem;
+
+// Анимация
+$animationTime: 2s;
+$scale: 0.24;
+
+.modal-tablet {
+  opacity: 1;
+  z-index: 3;
+  transition: 
+    margin $animationTime ease, 
+    filter $animationTime ease, 
+    z-index $animationTime ease-out;
+  font-family: '$Stamber-Bold';
+  word-break: keep-all;
+  backface-visibility: hidden; // Добавлено для устранения подергиваний
+  will-change: transform; // Добавлено для оптимизации
+
+  &__container{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d; // Добавлено для плавности
+  }
+
+  &_left,
+  &_right,
+  &_inactive {
+    position: absolute;
+    z-index: 2;
+    transform: translateZ(0); // Добавлено для аппаратного ускорения
+    
+    .modal-tablet__image {
+      max-height: calc(90vh * $scale);
+      transition: max-height $animationTime ease;
+    }
+
+    .modal-tablet__title {
+      font-size: calc($font-size-title * $scale);
+      margin-bottom: calc($margin-bottom-title * $scale);
+      transition: all $animationTime ease;
+    }
+
+    .modal-tablet__subtitle {
+      font-size: calc($font-size-subtitle * $scale);
+      margin-top: calc($margin-top-subtitle * $scale);
+      margin-bottom: calc($margin-bot-subtitle * $scale);
+      transition: all $animationTime ease;
+    }
+
+    .modal-tablet__text {
+      font-size: calc($font-size-text * $scale);
+      margin-bottom: calc($margin-bottom-text * $scale);
+      padding-left: calc($padding-left-text * $scale);
+      transition: all $animationTime ease;
+    }
+
+    .modal-tablet__list-item {
+      font-size: calc($font-size-list-item * $scale);
+      margin-bottom: calc($margin-bottom-list-item * $scale);
+      transition: all $animationTime ease;
+    }
+		.modal-tablet__experience-item{
+			margin-top: calc($margin-bottom-list-item * $scale);
+			transition: all $animationTime ease;
+		}
+  }
+
+  &_left {
+    filter: brightness(50%);
+    margin-left: -70vw;
+  }
+
+  &_right {
+    filter: brightness(50%);
+    margin-right: -70vw;
+  }
+
+  &_inactive {
+    opacity: 0;
+    filter: brightness(0%);
+    z-index: 1;
+  }
+
+  &__image {
+    max-height: 90vh;
+    max-width: 90vw;
+    height: auto;
+    object-fit: contain;
+    transition: all $animationTime ease;
+    transform: translateZ(0); // Добавлено для плавности
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: $padding-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+    contain: layout; // Добавлено для оптимизации
+  }
+
+  &__title {
+    font-size: $font-size-title;
+    font-weight: bold;
+    margin-bottom: $margin-bottom-title;
+    text-align: center;
+    width: 100%;
+    transition: all $animationTime ease;
+  }
+
+  &__subtitle {
+    font-size: $font-size-subtitle;
+    font-weight: bold;
+    margin-top: $margin-top-subtitle;
+    margin-bottom: $margin-bot-subtitle;
+    color: #333;
+    transition: all $animationTime ease;
+  }
+
+  &__text {
+    font-size: $font-size-text;
+    margin-bottom: $margin-bottom-text;
+    padding-left: $padding-left-text;
+    line-height: 1.2;
+    color: #555;
+    transition: all $animationTime ease;
+    a{
+      color: #333;
+    }
+  }
+
+  &__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__list-item {
+    font-size: $font-size-list-item;
+    margin-bottom: $margin-bottom-list-item;
+    color: #555;
+    transition: all $animationTime ease;
+  }
+
+  &__experience-item{
+		margin-top: $margin-bottom-list-item;
+    border-bottom: 1px solid black;
+		transition: all $animationTime ease;
+  }
+
+  &__nav-button {
+    position: absolute;
+    padding: 0 1vw;
+    height: 94%;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 10;
+    transition: all $animationTime ease;
+    opacity: 0.6;
+
+    img{
+      max-height: 4vh;
+      height: auto;
+    }
+
+    &--left {
+      left: -5vw;
+    }
+
+    &--right {
+      right: -5vw;
+    }
+
+    &:hover {
+      opacity: 1;
+      scale: (1.1);
+    }
+
+    &:disabled {
+      display: none;
+      opacity: 0;
+      cursor: default;
+    }
+  }
+}
+
+@media (max-width: 1180px) {
+	.modal-tablet{
+		&_left {
+			margin-left: -80vw;
+		}
+	
+		&_right {
+			margin-right: -80vw;
+		}
+	}
+}
+
+@media (max-width: 999px) {
+	.modal-tablet{
+		&__image {
+			max-height: 80vh;
+			max-width: 80vw;
+		}
+
+		&_left,
+		&_right,
+		&_inactive {
+			.modal-tablet__image {
+				max-height: calc(80vh * $scale) !important;
+			}
+		}
+
+		&_left {
+			margin-left: -200vw;
+		}
+	
+		&_right {
+			margin-right: -200vw;
+		}
+		&_inactive{
+			display: none;
+		}
+	}
+}
+
+
+@media (max-width: 630px) {
+  .modal-tablet {
+		&__title {
+			font-size: $font-size-subtitle;
+		}
+	
+		&__subtitle {
+			font-size: $base-font-size;
+		}
+	
+		&__text {
+			font-size: 0.8rem;
+		}
+
+	  &__list-item {
+			font-size: 0.8rem;
+		}
+
+		&_left,
+		&_right,
+		&_inactive {
+			.modal-tablet__title {
+				font-size: calc($font-size-subtitle * $scale);
+			}
+	
+			.modal-tablet__subtitle {
+				font-size: calc($base-font-size * $scale);
+			}
+	
+			.modal-tablet__text,
+			.modal-tablet__list-item{
+				font-size: calc(0.8rem * $scale);
+			}
+		}
+	}
+}
+
+// Дополнительные стили для очень маленьких экранов
+@media (max-width: 560px) {
+  .modal-tablet {
+		&__subtitle {
+			font-size: 0.8rem;
+		}
+		&__text {
+			font-size: 0.65rem;
+		}
+
+	  &__list-item {
+			font-size: 0.65rem;
+		}
+
+		&_left,
+		&_right,
+		&_inactive {
+			.modal-tablet__subtitle {
+				font-size: calc(0.8rem * $scale);
+			}
+	
+			.modal-tablet__text,
+			.modal-tablet__list-item{
+				font-size: calc(0.65rem * $scale);
+			}
+		}
+  }
+}

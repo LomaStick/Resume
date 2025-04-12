@@ -1,0 +1,33 @@
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &_main {
+    z-index: 1;
+  }
+
+  &_shadow {
+    z-index: 2;
+  }
+
+  &_vignette {
+    z-index: 3;
+  }
+	
+	&_scratches1, 
+	&_scratches2, 
+	&_scratches3 {
+		z-index: 4;
+	}
+}

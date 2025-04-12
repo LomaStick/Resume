@@ -1,0 +1,11 @@
+.interactiveItem {
+	position: absolute;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+  transition: scale 0.5s ease, background-image 0.5s ease;
+
+  &:hover {
+    scale: 1.05; // Увеличение на 5%
+  }
+}

@@ -1,0 +1,159 @@
+/* Переменные */
+$background-color: none;
+$progress-bar-color: white;
+$progress-bar-border-color: rgba(255, 255, 255, 0.3); 
+$text-color: #FAFAFA;
+$font-size-default: 18px;
+$font-size-large: 24px;
+$progress-bar-height: 30px;
+
+
+
+/* Общие стили для экрана загрузки */
+.loading-screen {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 10;
+
+  /* Контейнер для контента загрузки (полоса, текст) */
+  &__content {
+    position: absolute;
+    text-align: center;
+    color: $text-color;
+    width: 70%;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -75%);
+  }
+}
+
+/* Контейнер для полосы загрузки и процентов */
+.progress-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  /* Контейнер для полосы загрузки */
+  &__container {
+    width: 100%;
+    height: $progress-bar-height;
+    background-color: transparent;
+    border: 2px solid $progress-bar-border-color;
+    border-radius: 15px; 
+    overflow: hidden;
+    margin: 20px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Свечение */
+  }
+
+  /* Полоса загрузки */
+  &__bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 0%; /* Начальная ширина */
+    background: linear-gradient(90deg, #ff7e5f, #feb47b, #ff7e5f); /* Градиент */
+    background-size: 200% 100%;
+    border-radius: 15px; 
+    transition: width 0.2s linear;
+    animation: gradientAnimation 3s infinite; /* Анимация градиента */
+    box-shadow: 0 0 10px rgba(255, 126, 95, 0.5); /* Свечение */
+  }
+
+  /* Текст с процентами загрузки */
+  &__text {
+    color: $text-color;
+    font-weight: bold;
+    font-size: $font-size-default;
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Свечение текста */
+    &_animated {
+      animation: pulse 2s infinite;
+    }
+  }
+
+  /* Текст с процентами загрузки */
+  &__percentage {
+    font-size: $font-size-default;
+    font-weight: bold;
+    margin-left: 10px;
+    color: $text-color;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Свечение текста */
+  }
+
+  /* Текст "Для продолжения нажмите любую клавишу" */
+  &__press-any-key {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    font-weight: 400;
+    font-size: $font-size-large;
+    color: $text-color;
+    text-shadow: 
+      0 0 10px rgba(0, 0, 0, 0.8), /* Тень для светлого фона */
+      0 0 10px rgba(255, 255, 255, 0.8); /* Тень для темного фона */
+    animation: textGlow 2s infinite; /* Анимация свечения текста */
+
+    border: none;
+    outline: none;
+
+    /* Модификатор для анимации текста "Для продолжения..." */
+    &_animated {
+      animation: textGlow 2s infinite, pulse 3s infinite;
+    }
+  }
+}
+
+/* Анимация градиента */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Анимация пульсации */
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+/* Анимация свечения текста */
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+}
